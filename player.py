@@ -28,5 +28,15 @@ class Player:
     def getStrength(self) -> int:
         return self.strength
     
+    def getAverage(self):
+        total = 0
+        total += self.getAgility()
+        total += self.getMood()
+        total += self.getCommunication()
+        total += self.getReactionTime()
+        total += self.getSpeed()
+        total += self.getStrength()
+        return total/6
+    
 def makeRandomPlayer() -> Player:
     return Player(randint(1,100), randint(1,100), randint(1,100), randint(1,100), randint(1,100), randint(1,100))
