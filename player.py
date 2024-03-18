@@ -28,6 +28,24 @@ class Player:
     def getStrength(self) -> int:
         return self.strength
     
+    def setMood(self):
+        self.mood = self.mood
+    
+    def setCommunication(self, communication):
+        self.communication = communication
+    
+    def setReactionTime(self, reactionTime):
+        self.reactionTime = reactionTime
+    
+    def setSpeed(self, speed):
+        self.speed = speed
+    
+    def setAgility(self, agility):
+        self.agility = agility
+    
+    def setStrength(self, strength):
+        self.strength = strength
+    
     def getAverage(self):
         total = 0
         total += self.getAgility()
