@@ -1,6 +1,4 @@
-from Team import Team
-
-def battle(team: Team, oppTeam: Team):
+def battle(team, oppTeam):
     if(team.getTeamAverage() > oppTeam.getTeamAverage()):
         return "won"
     else:

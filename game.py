@@ -2,10 +2,29 @@ from names import generateName
 from Player import makeRandomPlayer
 from random import randint
 from Battle import battle 
+import randomEvents
 from Team import Team, createRandomTeam
+
 battlesLeft = 12
 time = 50
 team = []
+
+def playGame():
+    global battlesLeft
+    print(battle(team, createRandomTeam()))
+    battlesLeft -= 1
+
+def randomEventInGame():
+    count = 0
+    while(not randomEvents.rollRandom(100,1)):
+        count+=1
+    print(count)
+wins = 0
+for i in range(100):
+    if(randomEventInGame()):
+        wins+=1
+print((wins/100)*100)
+randomEventInGame()
 print("Welcome! It's a new season. Pick 12 people to add to your team!")
 while len(team) < 12:
     selectedPlayer = makeRandomPlayer()
@@ -24,5 +43,8 @@ while len(team) < 12:
             break
         print("Invaild input. Please try again.")
 team = Team(team)
-while(battlesLeft > 0):
-    battle(team, createRandomTeam())
+
+
+
+
+    

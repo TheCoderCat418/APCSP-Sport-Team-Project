@@ -1,18 +1,13 @@
 from random import randint
+
+
 def rollRandom(pot: int, winNums: int):
-    luckyNum = randint(1, pot)
+    luckyNum = randint(0, pot)
     randnums = []
+    for i in range(pot):
+        randnums.append(i)
+
     for i in range(winNums):
-        while(True):
-            num = randint(1, pot)
-            for j in randnums:
-                if(num == j):
-                    continue
-            break
-    for i in randnums:
-        if(i==luckyNum):
+        if randnums[randint(0, pot-1)] == luckyNum:
             return True
     return False
-
-
-    
