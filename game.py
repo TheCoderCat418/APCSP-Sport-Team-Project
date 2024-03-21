@@ -8,23 +8,9 @@ from Team import Team, createRandomTeam
 battlesLeft = 12
 time = 50
 team = []
+won = 0
 
-def playGame():
-    global battlesLeft
-    print(battle(team, createRandomTeam()))
-    battlesLeft -= 1
 
-def randomEventInGame():
-    count = 0
-    while(not randomEvents.rollRandom(100,1)):
-        count+=1
-    print(count)
-wins = 0
-for i in range(100):
-    if(randomEventInGame()):
-        wins+=1
-print((wins/100)*100)
-randomEventInGame()
 print("Welcome! It's a new season. Pick 12 people to add to your team!")
 while len(team) < 12:
     selectedPlayer = makeRandomPlayer()
@@ -44,6 +30,46 @@ while len(team) < 12:
         print("Invaild input. Please try again.")
 team = Team(team)
 
+
+def playGame():
+    global battlesLeft, won
+    luckyGuy = randint(0, len(team.team)-1)
+    mTeam = team
+    mOppTeam = createRandomTeam()
+    if(randomEvents.rollRandom(100,1)):
+        print(team.team[luckyGuy].name + " lost their voice.")
+        mTeam.team[luckyGuy].setCommunication(10)
+    if(randomEvents.rollRandom(30,1)):
+        print(team.team[luckyGuy].name + " has not showed up. Team score will be down.")
+        mTeam.team.pop(luckyGuy)
+    if(randomEvents.rollRandom(30,1)):
+        print("A member of the other team did not show up.")
+        mOppTeam.team.pop(luckyGuy)
+    if(battle(mTeam, mOppTeam) == "won"):
+        won += 1
+    battlesLeft -= 1
+
+def mainMenu():
+    print("\"Welcome to the rest area. Have any time to spend?\" said the Time Keeper.")
+    outP = ""
+    while(True):
+        inpu = input("\n>")
+
+
+
+
+
+
+
+
+
+
+
+
+
+while(battlesLeft != 0):
+    playGame()
+print(won)
 
 
 
