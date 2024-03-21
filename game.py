@@ -51,9 +51,23 @@ def playGame():
 
 def mainMenu():
     print("\"Welcome to the rest area. Have any time to spend?\" said the Time Keeper.")
+    print("1. Take your team to the gym. 25 Time Points\n2. Take a rest day 10 Time Points (all players get +10 mood)\n3. Continue to the next game")
     outP = ""
     while(True):
         inpu = input("\n>")
+        match (inpu):
+            case "1":
+                outP = 1
+                break
+            case "2":
+                outP = 2
+                break
+            case "3":
+                outP = 3
+                break
+            case _:
+                print("Invalid. PLease try again.")
+
 
 
 
