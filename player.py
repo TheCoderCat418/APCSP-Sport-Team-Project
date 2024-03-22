@@ -18,6 +18,9 @@ class Player:
         self.strength = strength
         self.agility = agility
         self.mood = mood
+        self.number = -1
+    def __str__(self) -> str:
+        return f"Number on team: {self.number}, Name: {self.getName()}, Communication: {self.getCommunication()}, Reaction Time: {self.getReactionTime()}, Speed: {self.getSpeed()}, Strength: {self.getStrength()}, Agility: {self.getAgility()}, Mood: {self.getMood()},"
 
     def getCommunication(self) -> int:
         return self.communication

@@ -62,7 +62,7 @@ def mainMenu():
     global team, time
     print("\"Welcome to the rest area. Have any time to spend?\" said the Time Keeper. You have " + str(time) + " time")
     while(True):
-        print("1. Train your team in a certain, random, area. 15 Time Points\n2. Take a rest day. 10 Time Points (all players get +10 mood)\n3. Upgrade all parts of your team by 10 (magic). 25 time points\n4. Continue to the next game")
+        print("1. Train your team in a certain, random, area. 15 Time Points\n2. Take a rest day. 10 Time Points (all players get +10 mood)\n3. Upgrade all parts of your team by 10 (magic). 25 time points\n4. Trade a person on your team. 15 time points.\n5. Continue to the next game")
         outP = ""
         while(True):
             inpu = input("\n>")
@@ -78,6 +78,9 @@ def mainMenu():
                     break
                 case "4":
                     outP = 4
+                    break
+                case "5":
+                    outP = 5
                     break
                 case _:
                     print("Invalid. PLease try again.")
@@ -126,6 +129,44 @@ def mainMenu():
                             teamMemberData += 10
                         getattr(team.team[i], 'set'+area)(teamMemberData)
             case 4:
+                if(time < 15):
+                    print("Not enough credits.")
+                    continue
+                time -= 15
+                for i in team.team:
+                    print(i)
+                print("Please enter the number of the person you would like to trade.")
+                playerNum = 0
+                while(True):
+                    try:
+                        inp = input("> ")
+                        playerNum = int(inp)
+                        if(playerNum >= 1 and playerNum <= 12):
+                            playerNum = int(inp)-1
+                            break
+                        else:
+                            int("LOL")
+                    except ValueError:
+                        print("Invaild number, try again \n")
+                print("Pick the player you would like or your team.")
+                while(True):
+                    newPlayer =  makeRandomPlayer()
+                    newPlayer.setName(generateName()[0])
+                    print(newPlayer)
+                    newPlayer.number = playerNum
+                    print("Add this player? (Y/N)")
+                    resp = ""
+                    while(True):
+                        ina = input("> ")
+                        if(ina.upper() == "Y" or ina.upper() == "N"):
+                            resp = ina.upper()
+                            break
+                        else:
+                            print("Not a valid responce. Try again")
+                    if(resp == "Y"):
+                        team.team[playerNum] = newPlayer
+                        break
+            case 5:
                 return
         if time < 10:
             return
