@@ -1,4 +1,4 @@
-from Team import Team
+from Teams import Team
 def levelUpPlayer(team: Team, playerNum: int, area, amt):
     match (area):
         case "strength":

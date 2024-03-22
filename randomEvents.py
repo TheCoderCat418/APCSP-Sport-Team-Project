@@ -10,3 +10,4 @@ def rollRandom(pot: int, winNums: int):
         if potArr[randint(0, pot-1)] == luckyNum:
             return True
     return False
+

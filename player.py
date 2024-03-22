@@ -4,14 +4,14 @@ from random import randint
 class Player:
     def __init__(
         self,
-        commmunication: int,
+        communication: int,
         reactionTime: int,
         speed: int,
         strength: int,
         agility: int,
         mood: int,
     ):
-        self.communication = commmunication
+        self.communication = communication
         self.reactionTime = reactionTime
         self.speed = speed
         self.name = "Unnamed"
